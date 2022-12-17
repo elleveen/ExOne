@@ -1,0 +1,306 @@
+-- 1 задание --
+
+numbers = int(input('Введите число: '))
+positive = 0
+negative = 0
+while numbers != -65432:
+    if numbers >= 0:
+        positive += 1
+    else:
+        negative += 1
+    numbers = int(input('Введите число: '))
+sum = negative + positive
+print('Процент положительных чисел: ', round(positive / sum) * 100, '%',
+      '\n Процент отрицательных чисел: ', round(negative / sum) * 100, '%')
+
+ -- 2 задание --
+
+
+sum = 0  # Сумма
+numbers = 0  # Количество слагаемых
+
+while True:
+    num = int(input('Введите любую цифру: '))
+    if num < 0:
+        break
+    if num % 2 != 0:
+        sum += -num
+    else:
+        sum += num * num
+
+    numbers += 1
+
+print(f'Сумма = {sum}')
+print(f'Количество слагаемых = {numbers}')
+
+ -- 3 задание --
+
+string = []
+M = 3
+
+for i in range(0, M):
+    string.append(input().replace('?', '*'))
+
+print(string)
+
+ -- 4 задание --
+
+array = []
+M = 4
+for i in range(0, M):
+    T = input ('Введите ' + str(i + 1) + ' строку: ')
+    K = T.count(' ')
+    print('В', i + 1, 'строке', K, 'проб.')
+
+ -- 5 задание --
+
+M = 3
+for i in range(0, M):
+    T = input('Введите ' + str(i + 1) + ' строку: ')
+    K = 0
+    for x in T:
+        if x in 'ёуеыаоэяиюЁУЕЫАОЭЯИЮ':
+            K += 1
+    print(f'Количество гласных букв: {K}')
+
+ -- 6 задание --
+
+string = []
+M = 3
+for i in range(0, M):
+    string.append(input('Введите ' + str(i + 1) + ' строку: '))
+    print('Получившееся предложение из предыдущих строк: ' + ' '.join(string))
+
+ -- 7 задание --
+
+arr = []
+M = 3
+
+for i in range(M):
+     arr.append(input('Введите ' + str(i + 1) + ' строку: '))
+
+b = len(max(arr))
+for i in range(len(arr)):
+    c = b - len(arr[i])
+    print('*' * c + str(arr[i]))
+
+ -- 8 задание --
+
+start = 1
+end = 3
+numbers = [1, 2, 3, 4, 5, 6]
+
+array = [s for s in numbers
+         if s < start or s > end ]
+
+print(array)
+
+
+ -- 9 задание --
+
+arr = [5,4,-5,-3]
+
+sumPositive = 0
+sumNegative = 0
+
+for i in range(0, len(arr)):
+    if arr[i] > 0:
+        sumPositive += arr[i]
+    else:
+        sumNegative += abs(arr[i])
+
+diff = abs(sumNegative - sumPositive)
+
+if sumPositive < sumNegative:
+    arr.append(diff)
+else:
+    arr.append(-diff)
+
+print(f'Сумма отрицательных = {sumNegative}')
+print(f'Сумма положительных = {sumPositive}')
+print(f'Разница = {diff}')
+arr.append(diff)
+
+print(arr)
+
+ -- 10 задание --
+
+import random
+
+N = int(input('Введите количество элементов массива: '))
+mas = []
+count_o = 0
+count_p = 0
+
+for i in range(N):
+    num = int(input('Введите элемент массива: '))
+    if num < 0:
+        count_o += 1
+    elif num > 0:
+        count_p += 1
+    mas.append(num)
+
+if count_o > count_p:
+    for w in range(count_o - count_p):
+        num = random.randint(1, 100)
+        mas.append(num)
+elif count_o < count_p:
+    for w in range(count_p - count_o):
+        num = random.randint(1, 100)
+        mas.append(num)
+
+print(mas)
+
+ -- 11 задание --
+
+mas = [1, 4, 5, 8, -9]
+
+min = []
+plus = []
+
+
+for r in range(len(mas)):
+    if mas[r] < 0:
+        min.append(mas[r])
+    elif mas[r] > 0:
+       plus.append(mas[r])
+
+print(f'Изначалный массив: {mas}')
+print(f'Массив отрицательных чисел: {min}')
+print(f'Массив отрицательных чисел: {plus}')
+
+ -- 12 задание --
+
+N = int(input('Введите количество элементов массива: '))
+mas = []
+
+count = 0
+sum_p = 0
+
+for i in range(N):
+    num = int(input('Введите элемент массива: '))
+    count += 1
+    if num > 0:
+        sum_p += num
+    else:
+        pass
+    mas.append(num)
+
+mas.insert(0, sum_p)
+mas.insert(1, count)
+print(mas)
+
+-- 13 задание --
+
+N = int(input('Введите количество элементов массива: '))
+mas = []
+
+for i in range(N):
+    num = int(input('Введите элемент массива: '))
+    mas.append(num)
+
+for i in range(0, N-1, 2):
+    mas[i], mas[i + 1] = mas[i + 1], mas[i]
+print(mas)
+
+-- 14 задание --
+
+year = int(input('Введите год: '))
+if year % 4 == 0:
+    print('Год високосный')
+else:
+    print('Год невисокосный')
+
+vek = year // 100 + 1
+print('Век', vek)
+
+-- 15 задание --
+
+a = int(input('Введите а: '))
+b = int(input('Введите b: '))
+c = int(input('Введите c: '))
+
+if a + b > c and a - b < c:
+    print('Такой треугольник существует')
+    if c ** 2 == a ** 2 + b ** 2:
+        print('Такой прямоугольник существует')
+    else:
+        print('Такого прямоугольника нет')
+else:
+    print('Такого тругольника нет')
+
+-- 16 задание --
+
+import math
+
+a = int(input('Введите а: '))
+h = int(input('Введите h: '))
+r = int(input('Введите r: '))
+
+M = int(input('Введите объем М жидкости: '))
+
+v_cub = a ** 3
+v_cil = math.pi * (r ** 2) * h
+
+if M <= v_cil and M <= v_cub:
+    print('Жидкость поместится и в куб и в цилиндр')
+elif M <= v_cil:
+    print('Жидкость поместится в цилиндр')
+elif M <= v_cub:
+    print('Жидкость поместится куб')
+else:
+    print('Жидкость никуда не помещается')
+
+-- 17 задание --
+
+a = int(input('Введите а: '))
+b = int(input('Введите b: '))
+c = int(input('Введите c: '))
+
+m = int(input('Введите m: '))
+k = int(input('Введите k: '))
+
+
+if a*c < m*k or a*b < m*k or b*c < m*k:
+    print('Коробка пройдет в дверь')
+else:
+    print('Коробка в дверь не пройдет')
+
+-- 18 задание --
+
+place = int(input('Выбирете место в поезде, всего 50 мест: '))
+
+if place > 50:
+    print('Такого места нет')
+
+elif place > 20:
+    print('Боковое')
+
+else:
+    print('Небоковое')
+
+if place > 50:
+    print('Такого места нет')
+
+elif place % 2 == 0:
+    print('Верхнее')
+
+else:
+    print('Нижнее')
+
+-- 19 задание --
+
+M = int(input('Введите сумму: '))
+print("Money= " + str(M))
+A = M % 500
+A1 = M // 500
+print("500: " + str(A1))
+B = A % 100
+B1 = A // 100
+print("100: " + str(B1))
+C = B % 10
+C1 = B // 10
+print("10: " + str(C1))
+D1 = C // 2
+print("2: " + str(D1))
+
